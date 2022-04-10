@@ -9,6 +9,6 @@ WORKDIR /pre-commit
 
 COPY ./entrypoint.sh /entrypoint.sh
 
-RUN git init && /entrypoint.sh && rm -rfv .git && apk del gcc build-base
+RUN chmod +x /entrypoint.sh && git init && /entrypoint.sh && rm -rfv .git && apk del gcc build-base
 
 ENTRYPOINT ["/bin/sh", "/entrypoint.sh"]
